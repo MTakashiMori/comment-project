@@ -67,8 +67,6 @@ class BaseRepository
             $data = $data->orderBy($field, $order);
         }
 
-        $data = $data->orderBy('id');
-
         if($request)
         {
             return $data->like($request);

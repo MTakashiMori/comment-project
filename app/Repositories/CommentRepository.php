@@ -18,6 +18,6 @@ class CommentRepository extends BaseRepository
     public function __construct(Comment $model)
     {
         $this->model = $model;
-        $this->relationship = [];
+        $this->relationship = ['comment', 'post'];
     }
 }

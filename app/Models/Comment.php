@@ -18,13 +18,13 @@ class Comment extends BaseModel
      */
     protected $guarded = [];
 
-    public function post()
+    public function commentable()
     {
-        return $this->morphOne(Post::class, 'commentable');
+        return $this->morphTo();
     }
 
-    public function comment()
+    public function comments()
     {
-        return $this->morphOne(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 }

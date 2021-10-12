@@ -20,6 +20,6 @@ class Post extends BaseModel
 
     public function comments()
     {
-        return $this->morphOne(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable')->orderBy('created_at');
     }
 }

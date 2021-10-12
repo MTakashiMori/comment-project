@@ -107,7 +107,17 @@ class BaseService
      */
     public function update($request, $id)
     {
-        return $this->repository->update($request, $id);
+        $response = collect([
+            'message' => __('messages.updated'),
+            'data' => null,
+            'code' => 200
+        ]);
+
+        $data = $this->repository->update($request, $id);
+
+        $response['data'] = $data;
+
+        return $response;
     }
 
     /**
