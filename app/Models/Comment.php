@@ -17,4 +17,14 @@ class Comment extends BaseModel
      * @var array
      */
     protected $guarded = [];
+
+    public function post()
+    {
+        return $this->morphOne(Post::class, 'commentable');
+    }
+
+    public function comment()
+    {
+        return $this->morphOne(Comment::class, 'commentable');
+    }
 }
